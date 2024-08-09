@@ -4,7 +4,7 @@ Watsonx is IBM's generative AI platform, officially launched on May 9, 2023 at t
 
 As customers increasingly adopt cloud services available from IBM, Microsoft, Amazon, Google and others, customers may choose to stay on-prem for some workloads for security and other business reasons. Fortunately, IBM offers a complete on-prem infrastructure for generative AI services that not all service providers can do to meet unique business requirements. 
 
-This document focuses on the on-prem watsonx.ai (current version 5.0.0) infrastructure deployment and AI powered retrieval-augmented generation solution development. It also covers the use of watsonx Orchestrate to build a user friendly chatbot without custom code required.
+This document focuses on the on-prem watsonx.ai (current version 5.0.1) infrastructure deployment and AI powered retrieval-augmented generation solution development. It also covers the use of watsonx Orchestrate to build a user friendly chatbot without custom code required.
 
 ## The On-Prem watsonx.ai Deployment
 
