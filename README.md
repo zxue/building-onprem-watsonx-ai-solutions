@@ -70,7 +70,13 @@ Once watsonx.ai and LLMs are deployed, you can build python notebooks to work wi
 
 ## Installing watsonx Orchestrate
 
+IBM watsonx Orchestrate (WxO) is a generative AI and automation solution. With the assistant builder, you can interact with AI models and find information based on the business specific contents, and take a series of actions to accomplish simple and complex tasks through a user friendly chatbot. 
 
+Before installing WxO, you must complete the prerequisites, including App Connect, Multicloud Object Gateway and Red Hat OpenShift Serverless Knative Eventing. 
+
+### IBM App Connect
+
+Follow the instructions on [Installing IBM App Connect in containers](https://www.ibm.com/docs/en/cloud-paks/cp-data/5.0.x?topic=software-installing-app-connect).
 
 ### Multicloud Object Gateway 
 
@@ -79,15 +85,26 @@ https://www.ibm.com/docs/en/cloud-paks/cp-data/5.0.x?topic=orchestrate-installin
 Multicloud Object Gateway is installed and configured.	If this task is not complete, see Installing Multicloud Object Gateway.
 The secrets that enable watsonx Orchestrate to connect to Multicloud Object Gateway exist.	If this task is not complete, see Creating secrets for services that use Multicloud Object Gateway.
 
-https://www.ibm.com/docs/en/cloud-paks/cp-data/5.0.x?topic=software-installing-multicloud-object-gateway
+Follow the instructions on [Deploy standalone Multicloud Object Gateway](https://docs.redhat.com/en/documentation/red_hat_openshift_data_foundation/4.14/html/deploying_openshift_data_foundation_using_bare_metal_infrastructure/deploy-standalone-multicloud-object-gateway#deploy-standalone-multicloud-object-gateway).
 
+Then, complete the steps for [Creating secrets for services that use Multicloud Object Gateway](https://www.ibm.com/docs/en/cloud-paks/cp-data/5.0.x?topic=piicpd-creating-secrets-services-that-use-multicloud-object-gateway)
 
 ### Knative Eventing
 
+Follow the instructions on [Installing Red Hat OpenShift Serverless Knative Eventing](https://www.ibm.com/docs/en/cloud-paks/cp-data/5.0.x?topic=software-installing-red-hat-openshift-serverless-knative-eventing).
 
-Red Hat OpenShift Serverless Knative Eventing is installed and configured.	If this task is not complete, see Installing Red Hat OpenShift Serverless Knative Eventing.
-IBM App Connect in containers is installed and configured.	If this task is not complete, see Installing App Connect in containers.
+Note: The cpd-cli command lines use the following namespaces, which may be different from the CP4D operator namespace and CP4D instance namespace you have defined and used for CP4D control plane and watsonx.ai.
 
+```
+cpd_operator_ns=ibm-knative-events 
+cpd_instance_ns=knative-eventing
+```
+
+### Install Orchestrate
+
+Follow the instructions on [Installing watsonx Orchestrate](https://www.ibm.com/docs/en/cloud-paks/cp-data/5.0.x?topic=orchestrate-installing)
+
+## Build Python Notebook
 
 export ES_URL=https://b0fbe999-393c-4323-975e-daeff4aca6d5.bn2a2uid0up8mv7mv2ig.databases.appdomain.cloud:32199
 
