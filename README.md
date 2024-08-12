@@ -166,8 +166,19 @@ Also, since we used a sentence transformer model, `all-minilm-l6-v2` instead of 
 
 ### Using Virtual Assistant in WxO
 
-Virtual assistants or chatbots are preferred user interface to end users. Through the embedded Assistant Builder, IBM WxO provides friendly user interfaces to integrate with ElasticSearch without coding. 
+Virtual assistants or chatbots are preferred user interface to end users. With the embedded AI assistant builder in WxO, you can easily create a chatbot that allows users to search and find the right information using the built-in "Conversational Search" option. 
 
+WxO Assistant architecture
+
+![WxO AI assistant builder architecture](media/ai-assistant-builder.png)
+
+Below are a few simple steps:
+
+- configure the search integration by providing the url for the search service and user access credentials.
+- add index (or indexes separated by comma) that you created with the notebook.
+- configure the query body in advanced ElasticSearch settings using the json text as shown below.
+
+![WxO advanced ElasticSearch settings](media/elasticsearch-settings.png)
 
 ```
 {
@@ -188,6 +199,9 @@ Virtual assistants or chatbots are preferred user interface to end users. Throug
     ]
 }
 ```
+- optionally, customize the background with an image or website url
+- preview the chatbot, ask questions and get answers back
+
 
 ## Acknowledgement
 
