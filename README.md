@@ -107,8 +107,6 @@ Follow the instructions on [Installing IBM App Connect in containers](https://ww
 
 ### Multicloud Object Gateway 
 
-https://www.ibm.com/docs/en/cloud-paks/cp-data/5.0.x?topic=orchestrate-installing
-
 Multicloud Object Gateway is installed and configured.	If this task is not complete, see Installing Multicloud Object Gateway.
 The secrets that enable watsonx Orchestrate to connect to Multicloud Object Gateway exist.	If this task is not complete, see Creating secrets for services that use Multicloud Object Gateway.
 
