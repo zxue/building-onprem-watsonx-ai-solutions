@@ -14,8 +14,8 @@ The on-prem watsonx.ai Deployment including several key components.
 - IBM Cloud Pak for Data control plane (not the full suite)
 - IBM watsonx.ai
 - Nvidia GPU (hardware) and Operators for OpenShift
-- IBM watsonx Orchestrate
 - IBM Watson Document Understanding (WDU)
+- IBM watsonx Orchestrate
 - IBM watsonx Discovery aka ElasticSearch
 - IBM Fusion Storage aka General Parallel File System (GPFS)
 
@@ -111,6 +111,14 @@ cpd_instance_ns=knative-eventing
 ### Install Orchestrate
 
 Follow the instructions on [Installing watsonx Orchestrate](https://www.ibm.com/docs/en/cloud-paks/cp-data/5.0.x?topic=orchestrate-installing)
+
+## Installing watsonx Discovery
+
+watsonx Discovery is powered by the Elasticsearch platform and made available through IBM watsonx offerings.
+
+watsonx Discovery integrates well with watsonx Orchestrate (WxO) and watsonx Assistant (WxA).
+
+Deploy watsonx Discovery on-prem (or in the cloud), check [Elasticsearch Installation and Setup Documentation](https://github.com/watson-developer-cloud/assistant-toolkit/tree/master/integrations/extensions/docs/elasticsearch-install-and-setup).
 
 ## Build Python Notebook
 
