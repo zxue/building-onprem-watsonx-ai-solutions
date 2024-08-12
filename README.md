@@ -82,6 +82,25 @@ IBM watsonx Orchestrate (WxO) is a generative AI and automation solution. With t
 
 Before installing WxO, you must complete the prerequisites, including App Connect, Multicloud Object Gateway and Red Hat OpenShift Serverless Knative Eventing. 
 
+If you want to improve response times in WxO, you can increase the CPU and memory specs in OpenShift.
+
+```
+spec:
+  watsonAssistants:
+    config:
+      configOverrides:
+        store:
+          extra_vars:
+            store:
+              NODEJS_HEAP_SIZE: 1792
+          resources:
+            store:
+              limits:
+                memory: 2Gi
+              requests:
+                memory: 2Gi
+```
+
 ### IBM App Connect
 
 Follow the instructions on [Installing IBM App Connect in containers](https://www.ibm.com/docs/en/cloud-paks/cp-data/5.0.x?topic=software-installing-app-connect).
@@ -120,52 +139,37 @@ watsonx Discovery integrates well with watsonx Orchestrate (WxO) and watsonx Ass
 
 Deploy watsonx Discovery on-prem (or in the cloud), check [Elasticsearch Installation and Setup Documentation](https://github.com/watson-developer-cloud/assistant-toolkit/tree/master/integrations/extensions/docs/elasticsearch-install-and-setup).
 
-## Build Python Notebook
+For semantic search, you can use the built-in [Elastic Learned Sparse EncodeR (ELSER)](https://www.elastic.co/guide/en/machine-learning/current/ml-nlp-elser.html) service. However, you can also use third-party services, such as the sentence transformer model, `all-minilm-l6-v2`.
 
-export ES_URL=https://b0fbe999-393c-4323-975e-daeff4aca6d5.bn2a2uid0up8mv7mv2ig.databases.appdomain.cloud:32199
+## Build RAG Solutions
 
-export ES_USER=ibm_cloud_40ac9d23_9fd8_4185_984e_406dd7610175
+We are now ready to use the watsonx.ai platform to build retrieval-augmented generation (RAG) solutions in python notebooks or virtual assistants or chatbots. 
 
-export ES_PASSWORD=813658601b6c9da84e103ae8413ca91df8f01f459b4fa29467baa9625dbeba82
+### Build Python Notebooks
 
-export MODEL_ID="sentence-transformers/all-MiniLM-L6-v2"
+This typically involves the following steps.
+
+- processing the documents, in our case, using WDU.
+- creating indexes for keyword and semantic search, in our case, using ElasticSearch.
+- creating a prompt template. It is often provided by the model providers but you can create your own.
+- submitting the query to a LLM, in our case, IBM foundation model or a custom model from Hugging Face.
+- displaying responses 
+- tweaking the notebook if necessary 
+
+The hig-level diagram illustrates the RAG solution.
+
+![RAG Solution](media/rag-solution.png)
+
+The sample [notebook](docs/rag_notebook.ipynb) is included here. Note that it was tested using IBM watsonx.ai and ElasticSearch cloud services. Some authentication code changes may be necessary when using on-prem watsonx.ai deployment.
+
+Also, since we used a sentence transformer model, `all-minilm-l6-v2` instead of the built-in ELSER model in the sample notebook, it is required that you deploy the custom model to the ElasticSearch. Check details on [Import the trained model and vocabulary](https://www.elastic.co/guide/en/machine-learning/8.11/ml-nlp-import-model.html)
+
+### Using Virtual Assistant in WxO
+
+Virtual assistants or chatbots are preferred user interface to end users. Through the embedded Assistant Builder, IBM WxO provides friendly user interfaces to integrate with ElasticSearch without coding. 
 
 
-
-#run locally
-
-eland_import_hub_model \
-  --url $ES_URL \
-  -u $ES_USER -p $ES_PASSWORD --insecure \
-  --hub-model-id $MODEL_ID \
-  --task-type text_embedding \
-  --start
-
-#or use docker
-
-docker run -it --rm elastic/eland \
-    eland_import_hub_model \
-      --url $ES_URL -u $ES_USER -p $ES_PASSWORD --insecure \
-      --hub-model-id $MODEL_ID \
-      --start
-
-python3 -m pip install 'eland[pytorch]<=8.11'
-
-spec:
-  watsonAssistants:
-    config:
-      configOverrides:
-        store:
-          extra_vars:
-            store:
-              NODEJS_HEAP_SIZE: 1792
-          resources:
-            store:
-              limits:
-                memory: 2Gi
-              requests:
-                memory: 2Gi
-
+```
 {
     "knn": {
         "field": "embedding",
@@ -183,6 +187,7 @@ spec:
         "text"
     ]
 }
+```
 
 ## Acknowledgement
 
