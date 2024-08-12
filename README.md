@@ -68,6 +68,14 @@ However, you can add custom models that are available at HuggingFace or else whe
 
 Once watsonx.ai and LLMs are deployed, you can build python notebooks to work with the large language models that are deployed in the environment.
 
+## Deploying Watson Understanding Document
+
+Watson Understanding Document (WDU) is IBM document conversion technology that will be available at part of watsonx.ai. It can process pdf and image documents and will support other formats such as Word and PowerPoint.
+
+WDU is available through an internal distribution but will be broadly available through watsonx.ai.
+
+To deploy WDU to an OpenShift cluster, check the [deployment instructions](docs/how%20to%20deploy%20wdu%20to%20openshift.md).
+
 ## Installing watsonx Orchestrate
 
 IBM watsonx Orchestrate (WxO) is a generative AI and automation solution. With the assistant builder, you can interact with AI models and find information based on the business specific contents, and take a series of actions to accomplish simple and complex tasks through a user friendly chatbot. 
