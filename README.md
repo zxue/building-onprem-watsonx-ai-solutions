@@ -48,7 +48,7 @@ Check details on [Installing the IBM Cloud Pak for Data control plane](https://w
 
 Note that you can install some of CP4D components or services in the same namespace or different ones. For the latter, you will need to take an extra step, [Tethering projects to the IBM Cloud Pak for Data control plane](https://www.ibm.com/docs/en/cloud-paks/cp-data/5.0.x?topic=data-tethering-projects-control-plane).
 
-For more details on CP4D components, check [Determining which IBM Cloud Pak for Data components to install](https://www.ibm.com/docs/en/cloud-paks/cp-data/5.0.x?topic=information-determining-which-components-install.
+For more details on CP4D components, check [Determining which IBM Cloud Pak for Data components to install](https://www.ibm.com/docs/en/cloud-paks/cp-data/5.0.x?topic=information-determining-which-components-install).
 
 ### Installing watsonx.ai
 
