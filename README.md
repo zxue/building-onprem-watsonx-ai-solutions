@@ -82,7 +82,7 @@ IBM watsonx Orchestrate (WxO) is a generative AI and automation solution. With t
 
 Before installing WxO, you must complete the prerequisites, including App Connect, Multicloud Object Gateway and Red Hat OpenShift Serverless Knative Eventing. 
 
-If you want to improve response times in WxO, you can increase the CPU and memory specs in OpenShift.
+If you want to improve response times in WxO, you can increase the cpu and memory specs in OpenShift.
 
 ```
 spec:
@@ -96,9 +96,14 @@ spec:
           resources:
             store:
               limits:
-                memory: 2Gi
+                memory: 1Gi
               requests:
-                memory: 2Gi
+                memory: 1Gi
+```
+Run the command line to increase cpu and memory:
+
+```
+oc patch wo <resource_name> --type merge -p '{"spec":{"watsonAssistants":{"config":{"configOverrides":{"store":{"extra_vars":{"store":{"NODEJS_HEAP_SIZE":1792}},"resources":{"store":{"limits":{"memory":"2Gi"},"requests":{"memory":"2Gi"}}}}}}}}}'
 ```
 
 ### IBM App Connect
