@@ -210,7 +210,7 @@ Below are a few simple steps:
 
 I'd like to acknowledge many IBMers who contributed to the work upon which the document is based.
 
-- IBM watsonx sales team - Travis Jeanneret, Will Hawkins, Gary Walker, MIKE MCMAHON
+- IBM watsonx sales team - Travis Jeanneret, Will Hawkins, Gary Walker, MIKE MCMAHON, Lloyd Dean
 - IBM Client Engineering team - DARREN D'Amato, Tabitha Brett, Vahi Guner, Jeniya Tabassum, Alex Cravalho, Ryan Menossi
 - IBM Expert Labs -  Darshan Vala, Jun Ahn  
 - IBM Watsonx product teams -  Albert Grankin, Angad Singh, Casey Honaker, Zach Shu, MANU THAPAR,  Mike Whitley
